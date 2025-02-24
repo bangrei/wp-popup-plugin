@@ -20,7 +20,7 @@ The plugin should seamlessly display pop-up content on a WordPress website page 
 3. Once the popup plugin is copied, then go to WP admin and login.
 4. Activate the plugin through the 'Plugins' menu in WordPress
 4. After login, you will see the Pop-Ups added in the side menu.
-![Alt text] (./images/popup-scaffold.png)
+![alt text](images/popup-scaffold.png)
 5. Click Pop-Ups to create new popup CPT.
 
 
@@ -28,9 +28,9 @@ The plugin should seamlessly display pop-up content on a WordPress website page 
 
 1. Click Pop-Ups to create new popup CPT.
 2. Click `Add New Post` button
-![screenshot] (./images/add-new-popup.png)
+![alt text](images/add-new-popup.png)
 3. In the Pop-Up Details form, fill in the title and description
-![screenshot] (./images/popup-details.png)
+![alt text](images/popup-details.png)
 4. Lastly, select a page from the dropdown list (page selection to determine in which page the popup will be shown)
 5. Then click `Publish` button.
 
@@ -39,4 +39,4 @@ The plugin should seamlessly display pop-up content on a WordPress website page 
 
 Go to the selected page and once landed you will see the popup as seen as below:
 
-![screenshot] (./images/view-popup.png)
+![alt text](images/view-popup.png)
