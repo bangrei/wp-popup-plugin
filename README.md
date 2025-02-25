@@ -17,7 +17,9 @@ The plugin should seamlessly display pop-up content on a WordPress website page 
 
 1. Clone the popup plugin from Github repository
 2. Copy the file to Wordpress directory `wp-content/plugins`
-3. Once the popup plugin is copied, then go to WP admin and login.
+3. Open terminal, pointing enter directory `wp-content/plugins`
+4. Run command: `npm install` to install the package.
+3. Go to WP admin and login.
 4. Activate the plugin through the 'Plugins' menu in WordPress
 4. After login, you will see the Pop-Ups added in the side menu.
 ![alt text](images/popup-scaffold.png)
