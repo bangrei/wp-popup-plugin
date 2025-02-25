@@ -43,23 +43,26 @@ class PopUp_API {
   /**
    * Callback for fetching the pop-up content.
    */
-  public function get_popup_data( $data ) {
-
-    $popup_query = new WP_Query( [
-      'post_type' => 'popup',
-      'posts_per_page' => 1,
-      // 'meta_key' => '_popup_page',
-      // 'meta_value' => 'sample-page', // Change this logic as needed
-    ]);
-
-    if ( $popup_query->have_posts() ) {
-      $popup = $popup_query->posts[0];
-      return [
-        'title' => get_post_meta( $popup->ID, '_popup_title', true ),
-        'description' => get_post_meta( $popup->ID, '_popup_description', true ),
-        'pageId' => get_post_meta( $popup->ID, '_popup_page', true ),
-        'post' => $data
-      ];
+  public function get_popup_data( WP_REST_Request $request ) {
+    $slug = $request->get_param('slug');
+    if($slug){
+      $post = get_page_by_path($slug, OBJECT, 'page');
+      if (!$post) {
+        return new WP_REST_Response('Page_not_found', 'Page not found', [ 'status' => 404 ]);
+      }
+      $popup_query = new WP_Query( [
+        'post_type' => 'popup',
+        'posts_per_page' => 1,
+        'meta_key' => '_popup_page',
+        'meta_value' => $post->ID,
+      ]);
+      if ( $popup_query->have_posts() ) {
+        $popup = $popup_query->posts[0];
+        return [
+          'title' => get_post_meta( $popup->ID, '_popup_title', true ),
+          'description' => get_post_meta( $popup->ID, '_popup_description', true ),
+        ];
+      }
     }
 
     return new WP_Error( 'no_popup', 'No pop-up found', [ 'status' => 404 ] );

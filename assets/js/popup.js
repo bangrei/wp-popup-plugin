@@ -9,8 +9,10 @@ document.addEventListener("DOMContentLoaded", function () {
 			},
 		},
 		created() {
+			const slugs = window.location.pathname.split("/");
+			const slug = slugs.filter((it) => it != "").pop();
 			// Call the API to get popup data
-			fetch("/wp-json/artistudio/v1/popup/123", {
+			fetch(`/wp-json/artistudio/v1/popup/${slug}`, {
 				method: "GET",
 				credentials: "same-origin",
 			})
